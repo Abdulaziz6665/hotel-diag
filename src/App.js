@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import MainMenu from './Components/Main-menu/Main-menu'
+import Dashboard from './Components/Dashboard/Dashboard'
+import Other from './Components/Other/Other'
+import { Route, Switch } from 'react-router-dom'
+import './App.css'
+// import { useState } from 'react'
 
-function App() {
+function App () {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div className="container">
+        <div className="block-main">
+          <div>
+            <Switch>
+              <Route path='*' component={MainMenu} />
+            </Switch>
+          </div>
+          <div className='block-submain'>
+            <Switch>
+              <Route path='/boshqa' component={Other} />
+              <Route path='/dashboard' component={Dashboard}/>
+            </Switch>
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
 
-export default App;
+export default App
